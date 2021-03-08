@@ -1,0 +1,22 @@
+<label>Server name</label>
+<!-- <input 
+type="text" 
+class="form-control"
+(input)="onUpdateServerName($event)"> -->
+<input 
+type="text" 
+class="form-control"
+[(ngModel)]="serverName"> <!-- 2 way binding -->
+<!-- <p> {{ serverName }} </p> -->
+
+<button 
+class="btn btn-primary"
+[disabled]="!allowAddServer"
+(click)="onCreateServer()">Add server</button>
+<!-- <p> {{ serverCreationStatus }}</p> -->
+
+<p *ngIf="serverCreated">Server created - {{ serverName }} </p> <!-- Conditional rendering -->
+<!-- <ng-template #noServer> 
+    <p>No server created</p>
+</ng-template> --> <!-- ngIF else -->
+<app-server *ngFor="let server of servers"></app-server>
